@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="服务计算," />
+  <meta name="keywords" content="私有云,VirtualBox,Centos," />
 
 
 
@@ -79,18 +79,39 @@
 
 
 
-<meta name="description" content="Hopefully I can do it.">
-<meta name="keywords" content="服务计算">
+<meta name="description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
+<meta name="keywords" content="私有云,VirtualBox,Centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用VirtualBox搭建简单的私有云">
 <meta property="og:url" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/index.html">
 <meta property="og:site_name" content="For white For me">
-<meta property="og:description" content="Hopefully I can do it.">
+<meta property="og:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2018-09-19T10:59:27.818Z">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537530217915.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537530142264.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537530541566.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537531324012.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537597262380.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537597435947.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537597776621.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537598170176.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537598191921.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537598468769.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537600300238.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537600335466.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537600189675.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537600601908.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537602914283.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537602929300.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537602475824.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537603013629.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537603229374.png">
+<meta property="og:updated_time" content="2018-09-22T08:14:42.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用VirtualBox搭建简单的私有云">
-<meta name="twitter:description" content="Hopefully I can do it.">
+<meta name="twitter:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
+<meta name="twitter:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png">
 
 
 
@@ -303,6 +324,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务计算/" itemprop="url" rel="index">
+                    <span itemprop="name">服务计算</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,7 +373,123 @@
       
 
       
-        
+        <p>云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。</p>
+<blockquote>
+<p>服务计算第一次实验：<a href="使用 VirtualBox 让 PC 提供云桌面服务">使用 VirtualBox 让 PC 提供云桌面服务</a></p>
+<p>大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）</p>
+</blockquote>
+<h2 id="一、安装Centos-7"><a href="#一、安装Centos-7" class="headerlink" title="一、安装Centos 7"></a>一、安装Centos 7</h2><p>首先，安装好<a href="https://www.virtualbox.org/" target="_blank" rel="noopener">VirtualBox</a>，配置好一块虚拟网卡（管理 -&gt; 主机网络管理器），如图：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png" alt="1537529810674"></p>
+<p>同时，下载好<a href="https://www.centos.org/download/" target="_blank" rel="noopener">Centos Minimal ISO</a>，作为前期准备。</p>
+<p>新建虚拟机，根据要求更改好显示和存储，重点在网络上，第一块网卡选择<code>网络地址转换（NAT)</code>，第二块网卡选择<code>仅主机（Host-Only）网络</code>，并选择刚才我们配置好的虚拟网卡。</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537530217915.png" alt="1537530217915"></p>
+<p>这里，从windows中也能看到这块网卡的信息：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537530142264.png" alt="1537530142264"></p>
+<blockquote>
+<ul>
+<li>小思考——关于虚拟机的网卡连接方式：</li>
+</ul>
+<p>从上面VBox的截图可以看到，我原来也用虚拟机运行桌面版Linux发行版Ubuntu，所以这一次选择了Centos这个系统来进一步学习，但是原来安装虚拟机的时候并没有关注过网络方面的选择，一直都是默认的NAT方法，虚拟机网络有时候也会出现一些小问题，但是重启基本都能解决，这一次看到网络可以有这么多种选择就去简单了解了一下这次所用到的两种。</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537530541566.png" alt="1537530541566"></p>
+<ol>
+<li>网络地址转换（NAT）：简单来说就是，虚拟机不拥有自己的ip，而通过主机连接，也就是通过你的win系统的网络访问外网，一般ip地址为10.x.x.x，内网地址。</li>
+<li>仅主机（Host-Only）网络：通过虚拟主机，也可以理解为虚拟网卡访问外网，能与主机相互ping通，但只有主机允许该网卡共享网络时，才能访问外网。虚拟机存在于主机构建的虚拟局域网中。</li>
+</ol>
+</blockquote>
+<p>之后，启动虚拟机，图形化界面引导安装centos，记住自己设定的用户名和密码，这里我直接使用了root用户，以便后来的配置。安装完成后，输入用户名和密码就可以进入系统啦！</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537531324012.png" alt="1537531324012"></p>
+<h2 id="二、配置Centos7"><a href="#二、配置Centos7" class="headerlink" title="二、配置Centos7"></a>二、配置Centos7</h2><h3 id="1-网络配置"><a href="#1-网络配置" class="headerlink" title="1. 网络配置"></a>1. 网络配置</h3><p>使用nmtui检查网络是否活动以及配置ip地址和主机名</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537597262380.png" alt="1537597262380"></p>
+<p>这里，<code>enp0s3</code>是我们配置的NAT网络，<code>enp0s8</code>是仅主机网络，一般来说，前者不需要配置，我们主要需要配置第二张网卡的ip，设置如下图：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537597435947.png" alt="1537597435947"></p>
+<p>需要注意的是，ipv4需要设定为<code>Manual（手动）</code>，事实上，第一次的时候我并没有修改这里而是保持了默认的<code>Automatic（手动）</code>也能正常配置完成整个私有云，但是后来舍友遇到了无法连接的问题，我再回头来登陆我的虚拟机才发现确实不能连接，会出现以下提示：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537597776621.png" alt="1537597776621"></p>
+<p>也就是ip设置出了问题，后来改成了手动没问题了。我的理解是，由于我们在虚拟机主机网络设置那里，设置的那张虚拟网卡是没有启用<code>DHCP服务器</code>的，所以连接不能设置成自动，只有在手动的情况下我们配置的ip才是有效的，这一点，在桌面版中很好理解，如果不设置成手动，根本就不会有让你填写ip的地方：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537598170176.png" alt="1537598170176"></p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537598191921.png" alt="1537598191921"></p>
+<p>最后，关于<code>nmtui</code>工具，还有一点需要注意，虽然大部分命令都是<strong>回车ENTER</strong>确定，但是那些需要勾选成<strong>X</strong>状态的选项，是需要按<strong>空格SPACE</strong>的！！！（神坑，由于当时不知道，所以自动连接是通过改ifconfig文件的<code>ONBOOT=YES</code>改出来的）</p>
+<p>之后，可以用<code>ip addr</code>查看当前网络状态，跟win下的<code>ipconfig</code>命令相似：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537598468769.png" alt="1537598468769"></p>
+<p>然后可以<code>ping</code>一下主机和外网：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537600300238.png" alt="1537600300238"></p>
+<p>然后在win下也可以<code>ping</code>一下虚拟机：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537600335466.png" alt="1537600335466"></p>
+<h3 id="2-软件配置"><a href="#2-软件配置" class="headerlink" title="2. 软件配置"></a>2. 软件配置</h3><ul>
+<li><p>更改成阿里云源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>升级OS内核</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装vim</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装VBox增强功能</p>
+<ul>
+<li><p>先安装需要的编译环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc kernel-devel kernel-headers bzip2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>之后网上有很多各种各样的方法，这里我只介绍我解决了的，最方便快捷的</p>
+<ol>
+<li><p>先挂载上<code>VBoxGuestAdditions.iso</code>（设备-&gt;分配光驱-&gt;选择虚拟盘-&gt;然后选择VBox安装文件夹下的<code>VBoxGuestAdditions.iso</code>）</p>
+</li>
+<li><p>这里的光盘应该是位于<code>/dev/cdrom</code>,我们用<code>mount</code>命令将他挂载到其他位置才能执行，进入我们挂载的位置，然后直接执行<code>./VBoxLinuxAdditions.run</code>就安装好了。</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537600189675.png" alt="1537600189675"></p>
+</li>
+<li><p>还有一种十分简单明了的办法，也是可行的，参考这篇博客的第8条：<a href="https://www.cnblogs.com/gentsir/p/8195517.html" target="_blank" rel="noopener">Linux 环境下为VirtualBox安装增强功能</a></p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-SSH连接"><a href="#3-SSH连接" class="headerlink" title="3. SSH连接"></a>3. SSH连接</h3><p>Centos7已经提供了内置的SSH连接，我们只需要启用它就可以了，修改<code>/etc/ssh/sshd_config</code>文件，将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Port 22</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+<p>这两行前面的注释<strong>#</strong>符号去掉，然后开启服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
+<p>这时就可以从win中ssh连接虚拟机了：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537600601908.png" alt="1537600601908"></p>
+<p>这里不得不提一句，前面为什么要关掉<code>DHCP服务器</code>以及设置手动配置<code>ip</code>，因为这样就不需要再在虚拟机中用<code>ip addr</code>查看当前<code>ip</code>，可以直接用VBox的<code>无界面启动</code>，然后在已知我们配置好的ip的情况下<code>ssh</code>连接虚拟机，比直接开启虚拟机要方便快捷许多。</p>
+<p>补充：</p>
+<p>利用端口转发，可以使用主机地址+端口号访问虚拟机，而不需要知道虚拟机的ip地址：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537602914283.png" alt="1537602914283"></p>
+<p>如上配置，我们可以利用<code>ssh -p 10303 192.168.100.1</code>访问虚拟机：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537602929300.png" alt="1537602929300"></p>
+<h2 id="三、复制Centos7"><a href="#三、复制Centos7" class="headerlink" title="三、复制Centos7"></a>三、复制Centos7</h2><blockquote>
+<p>这里，大部分人都没有遇到问题，只需要按步骤，利用VirtualBox提供的复制功能一路点点点就可以解决，但是我复制了三次，都出错了…只要一复制，配置好的虚拟机和它的备份都再也打不开了…</p>
+<p>第一次，我觉得可能是运气不太好，删掉重来了。</p>
+<p>第二次，我觉得可能是复制的姿势不太对，删掉再来。</p>
+<p>第三次，我实在舍不得删掉重来了，就复制了报错信息google了一下，然后将信将疑地按步骤执行，最后终于不需要再删掉重来了！</p>
+<p>这里就分享一下我的理解。</p>
+<p>问题参考解决方法：</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/17803331/how-to-change-uuid-in-virtual-box" target="_blank" rel="noopener">How to change UUID in virtual box</a></li>
+<li><a href="http://michlstechblog.info/blog/virtualbox-no-boot-after-snapshot-efail-0x80004005/" target="_blank" rel="noopener">Virtualbox: VM does not start after creating a snapshot. EFail (0x80004005)</a></li>
+</ol>
+</blockquote>
+<p>简单来说，就是在复制虚拟机时会更改虚拟机存储文件的uuid，导致启动虚拟机时无法找到对应的文件，故而报错。</p>
+<p>总之，如果它报的错是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Parent UUID &#123;00000000-0000-0000-0000-000000000000&#125; of the medium &apos;C:\Users\nik\VirtualBox VMs\XP-nik\Snapshots/&#123;ab4aad8d-7b66-4569-bbfd-facb581deefc&#125;.vhd&apos; does not match UUID &#123;94b27e89-d561-4449-a1a7-83c2f1dd8d12&#125; of its parent medium stored in the media registry (‘C:\Users\nik/.VirtualBox\VirtualBox.xml’)</span><br></pre></td></tr></table></figure>
+<p>你就执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage.exe internalcommands sethdparentuuid &quot;C:\Users\nik\VirtualBox VMs\XP-nik\Snapshots\&#123;ab4aad8d-7b66-4569-bbfd-facb581deefc&#125;.vhd&quot; &#123;94b27e89-d561-4449-a1a7-83c2f1dd8d12&#125;</span><br></pre></td></tr></table></figure>
+<p>其中<code>VBoxManage.exe</code>在VirtualBox安装文件夹中。</p>
+<p>以上。</p>
+<p><strong>复制好后</strong>，我们需只要修改第二台虚拟机的主机名和ip配置，就可以得到我们刚刚配置好的Centos7完全一样的备份机啦~如果把这个虚拟机搞出任何问题，都可以重新从原来的虚拟机复制一份新的而不用担心需要从头配置呢~</p>
+<p>然后我们可以给这台复制好的虚拟机装上桌面系统</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall &quot;GNOME Desktop&quot;</span><br></pre></td></tr></table></figure>
+<p>设置启动目标为桌面</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
+<p>然后重启虚拟机，就可以看到桌面版Linux了。</p>
+<h2 id="四、-远程连接Centos7"><a href="#四、-远程连接Centos7" class="headerlink" title="四、 远程连接Centos7"></a>四、 远程连接Centos7</h2><p>这里只需要利用VBox提供的端口转发功能，开启远程桌面服务，基本上就能完成了。不得不说，VirtualBox真是是一个很强大的开源虚拟机软件啊。</p>
+<p>配置如下：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537602475824.png" alt="1537602475824"></p>
+<p>把虚拟机<code>无界面启动</code>，在win下远程桌面连接虚拟机：</p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537603013629.png" alt="1537603013629"></p>
+<p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537603229374.png" alt="1537603229374"></p>
+<h2 id="五、-结语"><a href="#五、-结语" class="headerlink" title="五、 结语"></a>五、 结语</h2><p>至此，本次的私有云配置就告一段落了。虽然知道距离真正的<strong>云</strong>还有很多很多的路要走，但是这次实验总是还是有趣而有意义的，也能学习到很多东西，自己查了许多的资料，也问了许多问题，看了已成功的同学们的博客，自己写这篇博客的时候有些慌乱，因为确实已经做了很多遍了，但是由于没有一些关键问题的截图，只能有这一次成功的截图，大概就是只留下成功的喜悦吧~</p>
+<p>希望以后能好好利用这次创建好的私有云吧，也希望能坚持自己选择安装Centos想要多多熟悉命令行Linux的初衷。</p>
+<p>感谢你能阅读本篇博客到这里，欢迎评论。</p>
+
       
     </div>
     
@@ -347,7 +506,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/服务计算/" rel="tag"># 服务计算</a>
+            <a href="/tags/私有云/" rel="tag"># 私有云</a>
+          
+            <a href="/tags/VirtualBox/" rel="tag"># VirtualBox</a>
+          
+            <a href="/tags/Centos/" rel="tag"># Centos</a>
           
         </div>
       
@@ -356,22 +519,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -398,6 +545,9 @@
           
 
   
+    <div id="gitalk-container"></div>
+
+  
 
 
 
@@ -420,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -440,22 +599,31 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
@@ -463,6 +631,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Niz712" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:st1remain@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -476,6 +660,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装Centos-7"><span class="nav-number">1.</span> <span class="nav-text">一、安装Centos 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、配置Centos7"><span class="nav-number">2.</span> <span class="nav-text">二、配置Centos7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-网络配置"><span class="nav-number">2.1.</span> <span class="nav-text">1. 网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-软件配置"><span class="nav-number">2.2.</span> <span class="nav-text">2. 软件配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-SSH连接"><span class="nav-number">2.3.</span> <span class="nav-text">3. SSH连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、复制Centos7"><span class="nav-number">3.</span> <span class="nav-text">三、复制Centos7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、-远程连接Centos7"><span class="nav-number">4.</span> <span class="nav-text">四、 远程连接Centos7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、-结语"><span class="nav-number">5.</span> <span class="nav-text">五、 结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -653,6 +853,21 @@
 
 
 
+
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: 'Niz712.github.io',
+          owner: '',
+          admin: [''], 
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 

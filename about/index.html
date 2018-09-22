@@ -573,14 +573,16 @@
 
     <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
     <script src="/lib/gitalk/gitalk.min.js"></script>
+    <script src="/js/src/md5.min.js"></script>
    <script type="text/javascript">
         var gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
+          clientID: 'dee48c8f64b7b88a503f',
+          clientSecret: 'd9e6b1f66afe7c9d899a712fe1099a21e761139c',
           repo: 'Niz712.github.io',
           owner: 'Niz712',
           admin: ['Niz712'], 
-          id: location.pathname,
+          // id: location.pathname,
+          id: md5(location.pathname),
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')    

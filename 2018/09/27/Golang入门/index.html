@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Golang,Git," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="以Centos7为例，安装配置Go语言，使用Git进行版本控制，记录学习笔记。  服务计算第二次实验：安装 go 语言开发环境">
+<meta name="keywords" content="Golang,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang入门">
+<meta property="og:url" content="https://niz712.github.io/2018/09/27/Golang入门/index.html">
+<meta property="og:site_name" content="For white For me">
+<meta property="og:description" content="以Centos7为例，安装配置Go语言，使用Git进行版本控制，记录学习笔记。  服务计算第二次实验：安装 go 语言开发环境">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538066655152.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538067710340.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538068111880.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538068452650.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538071108898.png">
+<meta property="og:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538071381220.png">
+<meta property="og:updated_time" content="2018-09-27T09:29:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Golang入门">
+<meta name="twitter:description" content="以Centos7为例，安装配置Go语言，使用Git进行版本控制，记录学习笔记。  服务计算第二次实验：安装 go 语言开发环境">
+<meta name="twitter:image" content="https://niz712.github.io/2018/09/27/Golang入门/1538066655152.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niz712.github.io/2018/09/27/Golang入门/"/>
+
+
+
+
+
+  <title>Golang入门 | For white For me</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">For white For me</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2018/09/27/Golang入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Niz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For white For me">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Golang入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-27T17:29:49+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/service-computing/" itemprop="url" rel="index">
+                    <span itemprop="name">服务计算</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>以Centos7为例，安装配置Go语言，使用Git进行版本控制，记录学习笔记。</p>
+<blockquote>
+<p>服务计算第二次实验：<a href="https://pmlpml.github.io/ServiceComputingOnCloud/ex-install-go" target="_blank" rel="noopener">安装 go 语言开发环境</a></p>
+</blockquote>
+<a id="more"></a> 
+<h2 id="Golang安装配置"><a href="#Golang安装配置" class="headerlink" title="Golang安装配置"></a>Golang安装配置</h2><h3 id="安装Golang"><a href="#安装Golang" class="headerlink" title="安装Golang"></a>安装Golang</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># yum 安装</span><br><span class="line">sudo yum install golang</span><br><span class="line"># 检查</span><br><span class="line">go version</span><br><span class="line"># 安装位置</span><br><span class="line">rpm -ql golang |more</span><br></pre></td></tr></table></figure>
+<h3 id="配置工作空间"><a href="#配置工作空间" class="headerlink" title="配置工作空间"></a>配置工作空间</h3><p>Go语言一个很重要的概念就是工作空间。</p>
+<p>Go代码必须放在<strong>工作空间</strong>内。它其实就是一个目录，其中包含三个子目录：</p>
+<ul>
+<li><code>src</code> 目录包含Go的源文件，它们被组织成包（每个目录都对应一个包），</li>
+<li><code>pkg</code> 目录包含包对象，</li>
+<li><code>bin</code> 目录包含可执行命令。</li>
+</ul>
+<p><code>go</code> 工具用于构建源码包，并将其生成的二进制文件安装到 <code>pkg</code> 和 <code>bin</code> 目录中。</p>
+<p><code>src</code> 子目录通常包会含多种版本控制的代码仓库（例如Git）， 以此来跟踪一个或多个源码包的开发。</p>
+<p><strong>1、创建工作空间</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir $HOME/gowork  # 这里$HOME=~</span><br></pre></td></tr></table></figure>
+<p><strong>2、配置的环境变量</strong>，对于 centos 在 <code>~/.profile</code> 文件中添加，当然，我更习惯于在<code>~/.bashrc</code>中添加以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export GOPATH=$HOME/gowork</span><br><span class="line">export PATH=$PATH:$GOPATH/bin</span><br></pre></td></tr></table></figure>
+<p>然后执行这些配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source ~/.profile     # or  source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p><strong>3、检查配置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ go env</span><br></pre></td></tr></table></figure>
+<p>然后输出应该如下图，重点看<code>GOPATH</code>和<code>GOROOT</code>是否配置好。</p>
+<p><img src="/2018/09/27/Golang入门/1538066655152.png" alt="1538066655152"></p>
+<p><strong>4、安装Go相关工具</strong></p>
+<p>首先，<code>golang.org</code>应该是连接不上的，不然可以用<code>go get -u golang.org/x/tools/...</code>下载相关工具，其他的一些教程用的是<code>go get -d github.com/golang/tools</code>，然而我觉得最方便快捷的办法是用<code>git clone</code>，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 创建文件夹并进入该文件夹</span><br><span class="line">mkdir $GOPATH/src/golang.org/x/</span><br><span class="line">cd $GOPATH/src/golang.org/x/</span><br><span class="line"># git clone from https://github.com/golang/tools.git</span><br><span class="line">git clone https://github.com/golang/tools.git</span><br><span class="line"># 安装</span><br><span class="line">go install golang.org/x/tools/go/buildutil</span><br></pre></td></tr></table></figure>
+<p>这时，我们的工作空间下应该就能看到这一系列配置后生成的三个子目录了：</p>
+<p><img src="/2018/09/27/Golang入门/1538067710340.png" alt="1538067710340"></p>
+<h2 id="HelloGo"><a href="#HelloGo" class="headerlink" title="HelloGo"></a>HelloGo</h2><p>创建源代码目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir $GOPATH/src/github.com/github-user/hello -p</span><br></pre></td></tr></table></figure>
+<p>至于这里，为什么是这样一个目录结构，虽然你现在不需要将代码发布到远程库上，但是将来你想要发布时，这会是个好习惯。</p>
+<p>创建 <code>hello.go</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line">func main() &#123;</span><br><span class="line">    fmt.Printf(&quot;hello, world\n&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在终端运行!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run hello.go</span><br><span class="line">hello, world</span><br></pre></td></tr></table></figure>
+<p>然而，除了使用<code>run</code>命令以外，我们还能使用<code>install</code>命令，利用go工具构建安装这个程序，这听起来比用<code>run</code>来跑代码，更像一个程序了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># install</span><br><span class="line">go install github.com/github-user/hello</span><br><span class="line"># run</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
+<p>两种不同的运行方式如图：</p>
+<p><img src="/2018/09/27/Golang入门/1538068111880.png" alt="1538068111880"></p>
+<blockquote>
+<p>注意，你可以在系统的任何地方运行此命令。<code>go</code> 工具会根据 <code>GOPATH</code> 指定的工作空间，在 <code>github.com/user/hello</code> 包内查找源码。</p>
+<p><code>install</code>命令会构建 <code>hello</code> 命令，产生一个可执行的二进制文件。 接着它会将该二进制文件作为 <code>hello</code>（在 Windows 下则为 <code>hello.exe</code>）安装到工作空间的 <code>bin</code> 目录中。 在我们的例子中为 <code>$GOPATH/bin/hello</code>，具体一点就是 <code>$HOME/gowork/bin/hello</code>。</p>
+<p><img src="/2018/09/27/Golang入门/1538068452650.png" alt="1538068452650"></p>
+<p>由于我们已经将<code>$GOPATH/bin</code>加入了环境变量，所以能直接执行<code>hello</code>来运行这个程序。</p>
+</blockquote>
+<h2 id="Git远程仓库"><a href="#Git远程仓库" class="headerlink" title="Git远程仓库"></a>Git远程仓库</h2><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>可以直接使用<code>sudo yum install git</code>，但是centos提供的git版本比较低，建议下载官网额源码编译安装最新版，安装方法如下：</p>
+<p><strong>1. 下载官方tar2.8git安装包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.gz</span><br></pre></td></tr></table></figure>
+<p><strong>2. 安装依赖包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker1</span><br></pre></td></tr></table></figure>
+<p><strong>3. 执行安装操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf git-2.9.5.tar.gz</span><br><span class="line">$ cd git-2.9.5</span><br><span class="line">$ make prefix=/opt/git all</span><br><span class="line">$ sudo make prefix=/opt/git install</span><br></pre></td></tr></table></figure>
+<p><strong>4. 配置环境变量</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;export PATH=$PATH:/opt/git/bin&quot; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p><strong>5. 检查git版本</strong></p>
+<p><img src="/2018/09/27/Golang入门/1538071108898.png" alt="1538071108898"></p>
+<p>明显比原来直接<code>yum</code>安装的1.8.x要高级很多！</p>
+<h3 id="Git远程连接"><a href="#Git远程连接" class="headerlink" title="Git远程连接"></a>Git远程连接</h3><p>创建本机<code>sshkey</code>，然后查看生成的key：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">cd .ssh</span><br><span class="line">cat id_ras.pub</span><br></pre></td></tr></table></figure>
+<p>将显示内容添加到github账户中，测试一下：</p>
+<p><img src="/2018/09/27/Golang入门/1538071381220.png" alt="1538071381220"></p>
+<p>修改用户名和邮箱，可保持跟github账户一致：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<p>连接远程仓库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin http://github.com/username/project.git</span><br></pre></td></tr></table></figure>
+<h2 id="Git与HelloGo"><a href="#Git与HelloGo" class="headerlink" title="Git与HelloGo"></a>Git与HelloGo</h2><p>git也安装好了，远程仓库也配置好了，这时我们再次进入go工作空间，进入我们创建好的第一个项目<code>hello</code>,执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init  #初始化仓库</span><br><span class="line">git add . #上传所有修改的文件，这里主要指hello.go</span><br><span class="line">git commit -m &quot;Hello Go~&quot; #提交所有更改</span><br><span class="line">git push origin master #推送到远程仓库</span><br></pre></td></tr></table></figure>
+<p>如此，我们的第一个go项目就推送到远程仓库啦~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/19/使用VirtualBox搭建简单的私有云/" rel="next" title="使用VirtualBox搭建简单的私有云">
+                <i class="fa fa-chevron-left"></i> 使用VirtualBox搭建简单的私有云
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4"
+                alt="Niz" />
+            
+              <p class="site-author-name" itemprop="name">Niz</p>
+              <p class="site-description motion-element" itemprop="description">Hopefully I can do it.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Niz712" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:st1remain@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Golang安装配置"><span class="nav-number">1.</span> <span class="nav-text">Golang安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Golang"><span class="nav-number">1.1.</span> <span class="nav-text">安装Golang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置工作空间"><span class="nav-number">1.2.</span> <span class="nav-text">配置工作空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HelloGo"><span class="nav-number">2.</span> <span class="nav-text">HelloGo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git远程仓库"><span class="nav-number">3.</span> <span class="nav-text">Git远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">3.1.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git远程连接"><span class="nav-number">3.2.</span> <span class="nav-text">Git远程连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git与HelloGo"><span class="nav-number">4.</span> <span class="nav-text">Git与HelloGo</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Niz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">3.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+    <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'dee48c8f64b7b88a503f',
+          clientSecret: 'd9e6b1f66afe7c9d899a712fe1099a21e761139c',
+          repo: 'Niz712.github.io',
+          owner: 'Niz712',
+          admin: ['Niz712'], 
+          // id: location.pathname,
+          
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')    
+       </script>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

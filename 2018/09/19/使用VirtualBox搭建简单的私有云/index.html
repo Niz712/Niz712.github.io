@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
+<meta name="description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）">
 <meta name="keywords" content="私有云,VirtualBox,Centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用VirtualBox搭建简单的私有云">
 <meta property="og:url" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/index.html">
 <meta property="og:site_name" content="For white For me">
-<meta property="og:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
+<meta property="og:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png">
 <meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537530217915.png">
@@ -107,10 +107,10 @@
 <meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537602475824.png">
 <meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537603013629.png">
 <meta property="og:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537603229374.png">
-<meta property="og:updated_time" content="2018-09-22T08:14:42.943Z">
+<meta property="og:updated_time" content="2018-09-23T05:22:19.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用VirtualBox搭建简单的私有云">
-<meta name="twitter:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）  一、安装C">
+<meta name="twitter:description" content="云平台，听着是一个很厉害的东西，总觉得可能需要一个很大很厉害的服务器才能做到，但是这次需要我们用自己的电脑来实现这个私有云，听起来不简单，做起来却并没有想象中那样困难。  服务计算第一次实验：使用 VirtualBox 让 PC 提供云桌面服务 大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）">
 <meta name="twitter:image" content="https://niz712.github.io/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png">
 
 
@@ -336,7 +336,7 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/服务计算/" itemprop="url" rel="index">
+                  <a href="/categories/service-computing/" itemprop="url" rel="index">
                     <span itemprop="name">服务计算</span>
                   </a>
                 </span>
@@ -356,6 +356,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
           
 
           
@@ -378,6 +409,7 @@
 <p>服务计算第一次实验：<a href="使用 VirtualBox 让 PC 提供云桌面服务">使用 VirtualBox 让 PC 提供云桌面服务</a></p>
 <p>大部分流程同老师给出的试验内容相同，本篇博客主要记录在其中遇到的问题，和问题的解决和本人的思考（思考可能并不清晰，也不甚正确，欢迎评论指出）</p>
 </blockquote>
+<a id="more"></a> 
 <h2 id="一、安装Centos-7"><a href="#一、安装Centos-7" class="headerlink" title="一、安装Centos 7"></a>一、安装Centos 7</h2><p>首先，安装好<a href="https://www.virtualbox.org/" target="_blank" rel="noopener">VirtualBox</a>，配置好一块虚拟网卡（管理 -&gt; 主机网络管理器），如图：</p>
 <p><img src="/2018/09/19/使用VirtualBox搭建简单的私有云/1537529810674.png" alt="1537529810674"></p>
 <p>同时，下载好<a href="https://www.centos.org/download/" target="_blank" rel="noopener">Centos Minimal ISO</a>，作为前期准备。</p>
@@ -520,6 +552,22 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/27/Golang入门/" rel="prev" title="Golang入门">
+                Golang入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
       
@@ -599,7 +647,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -621,7 +669,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -696,6 +744,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Niz</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">3.6k</span>
   
 </div>
 
@@ -865,7 +922,7 @@
           owner: 'Niz712',
           admin: ['Niz712'], 
           // id: location.pathname,
-          id: md5(location.pathname),
+          
           distractionFreeMode: 'true'
         })
         gitalk.render('gitalk-container')    

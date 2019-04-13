@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="统一过程,软件开发模型," />
+  <meta name="keywords" content="用例,建模," />
 
 
 
@@ -79,18 +79,25 @@
 
 
 
-<meta name="description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
-<meta name="keywords" content="统一过程,软件开发模型">
+<meta name="description" content="1、简答题 用例的概念 用例是文本形式的情节描述，广泛应用于需求的发现合记录工作中。 通俗地讲，用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。">
+<meta name="keywords" content="用例,建模">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件项目过程模型与规划">
-<meta property="og:url" content="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/index.html">
+<meta property="og:title" content="用例建模">
+<meta property="og:url" content="https://niz712.github.io/2019/04/13/用例建模/index.html">
 <meta property="og:site_name" content="For white For me">
-<meta property="og:description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
+<meta property="og:description" content="1、简答题 用例的概念 用例是文本形式的情节描述，广泛应用于需求的发现合记录工作中。 通俗地讲，用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-03-22T10:21:14.000Z">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/actor.png">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/usecase.png">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/arrow.png">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/system.png">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/hotel.png">
+<meta property="og:image" content="https://niz712.github.io/2019/04/13/用例建模/movie.png">
+<meta property="og:updated_time" content="2019-04-13T12:00:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件项目过程模型与规划">
-<meta name="twitter:description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
+<meta name="twitter:title" content="用例建模">
+<meta name="twitter:description" content="1、简答题 用例的概念 用例是文本形式的情节描述，广泛应用于需求的发现合记录工作中。 通俗地讲，用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。">
+<meta name="twitter:image" content="https://niz712.github.io/2019/04/13/用例建模/actor.png">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/"/>
+  <link rel="canonical" href="https://niz712.github.io/2019/04/13/用例建模/"/>
 
 
 
 
 
-  <title>软件项目过程模型与规划 | For white For me</title>
+  <title>用例建模 | For white For me</title>
   
 
 
@@ -263,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/">
+    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2019/04/13/用例建模/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Niz">
@@ -280,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">软件项目过程模型与规划</h1>
+          <h1 class="post-title" itemprop="name headline">用例建模</h1>
         
 
         <div class="post-meta">
@@ -292,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-20T18:21:14+08:00">
-                2019-03-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T20:00:56+08:00">
+                2019-04-13
               </time>
             
 
@@ -346,7 +353,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.7k
+                  1.6k
                 </span>
               
 
@@ -383,121 +390,87 @@
       
 
       
-        <ul>
-<li><p>简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点</p>
-<ul>
-<li>从项目特点、风险特征、人力资源利用角度思考</li>
-</ul>
-<p><strong>瀑布模型</strong></p>
-<p>瀑布模型中的每一个开发活动具有下列特征：</p>
-<ol>
-<li><p>本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档 </p>
-</li>
-<li><p>根据本阶段的活动规程执行相应的任务</p>
-</li>
-<li><p>本阶段活动产出相关的软件工件，作为下一阶段活动的输入。</p>
-</li>
-<li><p>对本阶段活动执行情况进行评审 </p>
+        <h2 id="1、简答题"><a href="#1、简答题" class="headerlink" title="1、简答题"></a>1、简答题</h2><ol>
+<li><p>用例的概念</p>
+<p>用例是文本形式的情节描述，广泛应用于需求的发现合记录工作中。</p>
+<p>通俗地讲，用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。</p>
 <a id="more"></a> 
 </li>
-</ol>
+<li><p>用例和场景的关系？什么是主场景或 happy path？</p>
+<p>场景是参与者与系统之间的一系列特定的活动和交互，也称为<strong>用例实例</strong>。</p>
+<p>主场景 (primary scenario)，也被称为 happy path，是系统主要的交互，通常是成功的场景，是最常用的直接地实现用户目标的场景。 </p>
+</li>
+<li><p>用例有哪些形式？</p>
 <ul>
-<li><p>优点： </p>
-<ul>
-<li>降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性</li>
-<li>推迟软件实现，强调在软件实现前必须进行分析和设计工作</li>
-<li>以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开 发过程中存在的缺陷，使产品达到预期的质量要求 </li>
+<li>摘要——简洁的一段式概要，通常用于主成功场景。用于早期需求分析过程中，为了快速了解主题和范围。</li>
+<li>非正式——非正式的段落格式。用几个段落覆盖不同场景。同样，用于早期需求分析过程中，为了快速了解主题和范围。</li>
+<li>详述——详细编写所有步骤及各种变化，同时具有补充部分，如前置条件和成功保证。何时使用?确定并以摘要形式编写了大量用例后，在第一次需求讨论会中，详细的编写其中少量(例如：10％)的具有重要架构意义和高价值的用例。</li>
 </ul>
 </li>
-<li><p>缺点：</p>
-<ul>
-<li>强调过程活动的线性顺序 </li>
-<li>缺乏灵活性，特别是无法解决软件需求不明确或不准确的问题</li>
-<li>风险控制能力较弱</li>
-<li>瀑布模型中的软件活动是文档驱动的，当阶段之间规定过多的文档时，会极大地增加系统的工作量</li>
-<li>管理人员如果仅仅以文档的完成情况来评估项目完成进度，往往会产生错误的结论 </li>
-</ul>
+<li><p>对于复杂业务，为什么编制完整用例非常难？</p>
+<p>完整用例是结构化的，它展示了更多细节，并且更为深入。对于复杂业务，用例的场景很多，并且很复杂，很难不遗漏一些业务和要求。同时，复杂业务的需求变化更为复杂，牵一发动全身，故而很难编制完整用例。</p>
 </li>
-</ul>
+<li><p>什么是用例图？</p>
+<p>用例图是指由参与者（Actor）、用例（Use Case），边界以及它们之间的关系构成的用于描述系统功能的视图。用例图是外部用户（被称为参与者）所能观察到的系统功能的模型图。用例图是系统的蓝图。用例图呈现了一些参与者，一些用例，以及它们之间的关系，主要用于对系统、子系统或类的功能行为进行建模。</p>
 </li>
-</ul>
-<p>  <strong>增量模型</strong></p>
-<p>  增量模型首先对系统最核心或最清晰的需求进行分析、设计、实现、测试并集成到系统中，再按优先级逐步实现后续需求。 </p>
-<ul>
-<li><p>优点：</p>
-<ul>
-<li>增强客户对系统的信心</li>
-<li>降低系统失败风险</li>
-<li>提高系统可靠性</li>
-<li>提高系统的稳定性和可维护性</li>
-</ul>
+<li><p>用例图的基本符号与元素？</p>
+<p>| 元素     | 符号                              | 概念                                                         |<br>| ——– | ——————————— | ———————————————————— |<br>| 参与者   | <img src="/2019/04/13/用例建模/actor.png" alt="actor">     | 具有某些行为的事物，可以是人（由角色识别）、计算机系统或组织。 |<br>| 用例     | <img src="/2019/04/13/用例建模/usecase.png" alt="usecase"> | 用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。 |<br>| 箭头     | <img src="/2019/04/13/用例建模/arrow.png" alt="arrow">     | 箭头用来表示参与者和系统通过相互发送信号或消息进行交互的关联关系。箭头尾部用来表示启动交互的一方，箭头头部用来表示被启动的一方，其中用例总是要由参与者来启动。 |<br>| 系统边界 | <img src="/2019/04/13/用例建模/system.png" alt="system">   | 系统边界是用来表示正在建模系统的边界。边界内表示系统的组成部分，边界外表示系统外部。系统边界在画图中用方框来表示，同时附上系统的名称，参与者画在边界的外面，用例画在边界里面。 |</p>
 </li>
-<li><p>缺点：</p>
-<ul>
-<li><p>增量粒度难以选择</p>
-</li>
-<li><p>确定所有的基本业务服务比较困难 </p>
-</li>
-</ul>
-</li>
-</ul>
-<p>  <strong>螺旋模型</strong></p>
-<p>  螺旋模型主要针对大型软件项目的开发</p>
-<ul>
-<li><p>优点：</p>
-<ul>
-<li>引入了明确的风险管理机制 </li>
-<li>风险驱动的迭代过程，强调可选方案和约束条件从而支持软件的重用，有助于将软件质量作为特殊目标融入产品开发之中</li>
-</ul>
-</li>
-<li><p>缺点：</p>
-<ul>
-<li><p>螺旋模型强调风险分析，但说服外部客户接受和相信分析结果并做出相关反应并不容易</p>
-</li>
-<li><p>风险分析需要耗费相当的成本</p>
-</li>
-<li><p>失误的风险分析可能带来更大的风险</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>简述统一过程三大特点，与面向对象的方法有什么关系？</p>
-<p>三大特点：</p>
-<ul>
-<li>迭代式的增量开发：受控的迭代式增量开发 </li>
-<li>用例（Use case-driven）驱动 </li>
-<li>以软件体系结构为中心 </li>
-</ul>
-<p>统一过程是一个面向对象且基于网络的程序开发方法论。 </p>
-</li>
-<li><p>简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？</p>
+<li><p>用例图的画法与步骤</p>
 <ol>
-<li>初始阶段<ul>
-<li>目标：为系统建立业务案例 (Business Case) 并确定项目的边界。业务案例包括项目的验收规范、风险评估、所需资源估计、阶段计划等。确定项目边界需要识别所有与系统交互的外部实体，并在较高层次上定义外部实体与系统交互的特性，主要包括识别外部角色 (Actor)、识别所有用例并详细描述一些重要的用例。</li>
-<li>里程碑：生命周期目标 (Lifecycle Objective) 里程碑，包括一些重要的文档，如：项目构想 (Vision)、原始用例模型、原始业务 风险评估、一个或者多个原型、原始业务案例等。需要对这些 文档进行评审，以确定正确理解用例需求、项目风险评估合理、阶段计划可行等。 </li>
+<li>确定系统边界</li>
+<li>寻找参与者</li>
+<li>满足主要参与者目标的系统服务</li>
+<li>建立关联</li>
+</ol>
+</li>
+<li><p>用例图给利益相关人与开发者的价值有哪些？</p>
+<ul>
+<li>对于利益相关人：<ul>
+<li>可以直观看到系统的结果和用户的功能体验，保证系统按照用户的需求进行设计。</li>
+<li>用例能够根据需要对复杂程度和形式化程序进行增减调节，即能够响应用户（利益相关人)提出的需求，而用例图则使得这种调节更加便利，可以通过修改图形间的关系实现。</li>
 </ul>
 </li>
-<li>精化阶段<ul>
-<li>目标：分析问题领域，建立健全的体系结构基础，编制项目计划，完成项目中高风险需求部分的开发。 </li>
-<li>里程碑：生命周期体系结构 (Lifecycle Architecture) 里程碑。包括风险分析文档、软件体系结构基线、项目计划、可执行的进 化原型、初始版本的用户手册等。通过评审确定软件体系结构 已经稳定、高风险的业务需求和技术机制已经解决、修订的项 目计划可行等。 </li>
+<li>对于开发者来说：<ul>
+<li>用例图是设计者设计过程的结论与参考，设计者与开发者之间的交流工具，开发者开发过程的蓝图。</li>
+<li>用例图使得开发者能够更明确地获得需求，更好地理解需求。</li>
+<li>用例图可以指导开发和测试，同时可以在整个过程中对其他工作流起到指导作用。</li>
 </ul>
 </li>
-<li>构建阶段 <ul>
-<li>目标：完成所有剩余的技术构件和稳定业务需求功能的开发， 并集成为产品，详细测试所有功能。构建阶段只是一个制造过 程，其重点放在管理资源及控制开发过程以优化成本、进度和 质量。 </li>
-<li>里程碑：初始运行能力 (Initial Operational Capability) 里程碑。包括可以运行的软件产品、用户手册等，它决定了产品是否可 以在测试环境中进行部署。此刻，要确定软件、环境、用户是 否可以开始系统的运行。 </li>
-</ul>
-</li>
-<li>产品化阶段/移交阶段<ul>
-<li>目标：确保软件对最终用户是可用的。产品化阶段可以跨越几次迭代，包括为发布做准备的产品测试，基于用户反馈的少量 调整。</li>
-<li>里程碑：产品发布 (Product Release) 里程碑。确定最终目标是否实现，是否应该开始产品下一个版本的另一个开发周期。在 一些情况下这个里程碑可能与下一个周期的初始阶段的相重合。 </li>
 </ul>
 </li>
 </ol>
+<h2 id="2、建模练习题（用例模型）"><a href="#2、建模练习题（用例模型）" class="headerlink" title="2、建模练习题（用例模型）"></a>2、建模练习题（用例模型）</h2><ul>
+<li><p>选择2-3个你熟悉的类似业务的在线服务系统（或移动 APP），如定旅馆（携程、去哪儿等）、定电影票、背单词APP等，分别绘制它们用例图。并满足以下要求：</p>
+<ul>
+<li>请使用用户的视角，描述用户目标或系统提供的服务</li>
+<li>粒度达到子用例级别，并用 include 和 exclude 关联它们</li>
+<li>请用色彩标注出你认为创新（区别于竞争对手的）用例或子用例</li>
+<li>尽可能识别外部系统和服务</li>
+</ul>
+<p><img src="/2019/04/13/用例建模/hotel.png" alt="hotel"></p>
+<p><img src="/2019/04/13/用例建模/movie.png" alt="movie"></p>
 </li>
-<li><p>软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？</p>
-<p>UP统一过程将软件的生命周期划分为四个阶段，每一阶段包含一个明确的里程碑，这样，每一阶段的长度固定下来。并且开发被组织成一系列固定的短期小项目，称为迭代，每次迭代都产生经过测试、集成并可执行的局部系统。每次迭代都具有各自的需求分析、设计、实现和测试活动。因此，在每次迭代完成后，都有一定的产品可供发布。 </p>
-<p>按固定节奏生产、固定周期发布产品给企业项目管理以更明确的目标和更好的软件开发节奏，提升效率，节省时间，也能更方便的安排团队的工作。</p>
+</ul>
+<ul>
+<li><p>然后，回答下列问题：</p>
+<ol>
+<li><p>为什么相似系统的用例图是相似的？</p>
+<p>相似系统的业务流程相似，相关流程与核心相似，所以画出来的用例图也是相似的。</p>
+</li>
+<li><p>如果是定旅馆业务，请对比 Asg_RH 用例图，简述如何利用不同时代、不同地区产品的用例图，展现、突出创新业务和技术</p>
+<p>Asg_RH用例图可以看出，它仅仅是一个简单的订酒店的业务，没有其他多余的功能。而当今时代的定旅馆业务，通常是一个综合型更高的业务，包括更多的更人性化的筛选，问答和评论，更多元化。</p>
+</li>
+<li><p>如何利用用例图定位创新思路（业务创新、或技术创新、或商业模式创新）在系统中的作用</p>
+<p>可以通过设置背景颜色显示出创新思路对其他部分的影响。</p>
+</li>
+<li><p>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求</p>
+<p>| ID   | Name             | Imp  | Est  | How to demo                                          |<br>| —- | —————- | —- | —- | —————————————————- |<br>| 1    | find hotel       | 10   | 3    | find hotel by name or use map api                    |<br>| 2    | make reservation | 7    | 4    | determine hotel，room，time and confirm informations |<br>| 3    | pay              | 7    | 3    | pay by pay api                                       |<br>| 4    | comment          | 4    | 2    | comment of the reservation and show it               |</p>
+</li>
+<li><p>根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算</p>
+<p>| 用例             | 业务 | 计算 | UC比重 |<br>| —————- | —- | —- | —— |<br>| Find hotel       | 3    | 2    | 简单   |<br>| make reservation | 7    | 6    | 一般   |<br>| pay              | 2    | 1    | 简单   |<br>| comment          | 3    | 2    | 简单   |</p>
+</li>
+</ol>
 </li>
 </ul>
 
@@ -517,9 +490,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/统一过程/" rel="tag"># 统一过程</a>
+            <a href="/tags/用例/" rel="tag"># 用例</a>
           
-            <a href="/tags/软件开发模型/" rel="tag"># 软件开发模型</a>
+            <a href="/tags/建模/" rel="tag"># 建模</a>
           
         </div>
       
@@ -532,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/16/软件项目与知识团队管理基础/" rel="next" title="软件项目与知识团队管理基础">
-                <i class="fa fa-chevron-left"></i> 软件项目与知识团队管理基础
+              <a href="/2019/03/20/软件项目过程模型与规划/" rel="next" title="软件项目过程模型与规划">
+                <i class="fa fa-chevron-left"></i> 软件项目过程模型与规划
               </a>
             
           </div>
@@ -541,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/13/用例建模/" rel="prev" title="用例建模">
-                用例建模 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,8 +568,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -680,6 +658,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、简答题"><span class="nav-number">1.</span> <span class="nav-text">1、简答题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、建模练习题（用例模型）"><span class="nav-number">2.</span> <span class="nav-text">2、建模练习题（用例模型）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

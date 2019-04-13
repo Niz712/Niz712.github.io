@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件工程,软件危机," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="作业题目地址：软件的本质与软件工程科学    软件工程的定义 是指导计算机软件开发和维护的工程学科。采用工程的概念、原理、技术和方法来开发与维护软件，把经过实践考验而证明正确的管理技术和当前能够得到的最好的技术方法结合起来，这就是软件工程。">
+<meta name="keywords" content="软件工程,软件危机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件的本质与软件工程科学">
+<meta property="og:url" content="https://niz712.github.io/2019/03/10/软件的本质与软件工程科学/index.html">
+<meta property="og:site_name" content="For white For me">
+<meta property="og:description" content="作业题目地址：软件的本质与软件工程科学    软件工程的定义 是指导计算机软件开发和维护的工程学科。采用工程的概念、原理、技术和方法来开发与维护软件，把经过实践考验而证明正确的管理技术和当前能够得到的最好的技术方法结合起来，这就是软件工程。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Characteristics_of_Capability_Maturity_Model.svg/500px-Characteristics_of_Capability_Maturity_Model.svg.png">
+<meta property="og:updated_time" content="2019-03-10T12:06:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件的本质与软件工程科学">
+<meta name="twitter:description" content="作业题目地址：软件的本质与软件工程科学    软件工程的定义 是指导计算机软件开发和维护的工程学科。采用工程的概念、原理、技术和方法来开发与维护软件，把经过实践考验而证明正确的管理技术和当前能够得到的最好的技术方法结合起来，这就是软件工程。">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Characteristics_of_Capability_Maturity_Model.svg/500px-Characteristics_of_Capability_Maturity_Model.svg.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niz712.github.io/2019/03/10/软件的本质与软件工程科学/"/>
+
+
+
+
+
+  <title>软件的本质与软件工程科学 | For white For me</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">For white For me</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2019/03/10/软件的本质与软件工程科学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Niz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For white For me">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件的本质与软件工程科学</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-10T16:19:35+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统分析与设计/" itemprop="url" rel="index">
+                    <span itemprop="name">系统分析与设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>作业题目地址：<a href="https://sysu-swsad.github.io/swad-guide/01-nature-software" target="_blank" rel="noopener">软件的本质与软件工程科学</a> </p>
+</blockquote>
+<ul>
+<li><p>软件工程的定义</p>
+<p>是指导计算机软件开发和维护的工程学科。采用工程的概念、原理、技术和方法来开发与维护软件，把经过实践考验而证明正确的管理技术和当前能够得到的最好的技术方法结合起来，这就是软件工程。</p>
+<a id="more"></a> 
+</li>
+<li><p>解释导致 software crisis 本质原因、表现，述说克服软件危机的方法</p>
+<ul>
+<li>本质原因：<ul>
+<li>软件的大量需求与软件生产力效率之间的矛盾</li>
+<li>软件系统的复杂性与软件开发方法之间的矛盾</li>
+<li><a href="https://www.sebokwiki.org/wiki/The_Nature_of_Software" target="_blank" rel="noopener">软件的本质</a>决定了软件开发的困难：复杂性、一致性、可变性、不可视性、唯一性</li>
+</ul>
+</li>
+<li>表现：<ul>
+<li>项目超出预算</li>
+<li>项目超时</li>
+<li>软件效率非常低</li>
+<li>软件质量低劣</li>
+<li>软件经常不符合要求</li>
+<li>项目无法管理，代码难以维护</li>
+<li>软件无法交付</li>
+</ul>
+</li>
+<li>克服方法：系统化的、与时俱进的软件工程方法</li>
+</ul>
+</li>
+<li><p>软件生命周期（计划 分析 编码 测试）</p>
+<p><strong>软件生命周期</strong>（Life Cycle）：在时间维度，对软件项目任务进行划分，又成为<a href="https://en.wikipedia.org/wiki/Software_development_process" target="_blank" rel="noopener">软件开发过程</a>。常见有瀑布模型、螺旋模型、敏捷的模型等。 </p>
+<p>主要有6个阶段：</p>
+<ul>
+<li>可行性分析与计划阶段</li>
+<li>需求分析阶段</li>
+<li>设计阶段</li>
+<li>实现阶段    </li>
+<li>测试阶段    </li>
+<li>运行与维护阶段    </li>
+</ul>
+</li>
+<li><p>SWEBoK 的 15 个知识域（<a href="https://www.sebokwiki.org/wiki/An_Overview_of_the_SWEBOK_Guide" target="_blank" rel="noopener">An Overview of the SWEBOK Guide</a> 请中文翻译其名称与简短说明）</p>
+<p><strong>软件工程实践</strong></p>
+<ol>
+<li><p>软件需求：涉及软件需求的引出、协商、分析、规范和确认。</p>
+</li>
+<li><p>软件设计：定义系统或组件的架构、组件、接口和其他特性的过程，以及该过程的结果。</p>
+</li>
+<li><p>软件构建：是指通过详细设计、编码、单元测试、集成测试、调试和验证的组合来详细创建工作软件。</p>
+</li>
+<li><p>软件测试：涉及根据有限的测试用例集上的预期行为对程序行为进行动态验证。</p>
+</li>
+<li><p>软件维护：包括增强现有的能力，使软件适应新的和修改过的操作环境，以及纠正缺陷。</p>
+</li>
+<li><p>软件配置管理：系统地控制硬件、固件、软件的特定版本，并在整个软件生命周期内保持配置的完整性和可追溯性。 </p>
+</li>
+<li><p>软件工程管理：包括计划、协调、测量、报告和控制项目或程序，以确保软件的开发和维护是系统的、有纪律的和量化的。</p>
+</li>
+<li><p>软件工程过程：即软件生命周期，包括生命周期过程中的定义、实现、评估、测量、管理和改进。</p>
+</li>
+<li><p>软件工程模型和方法：指软件生命周期管理中的建模模型与软件开发方法。</p>
+</li>
+<li><p>软件质量：包括软件的基础质量、软件质量的管理过程，以及实用性。</p>
+</li>
+<li><p>软件工程职业实践：涉及软件工程师实现软件工程所必须具备的知识、技能、态度。</p>
+</li>
+</ol>
+<p><strong>基础教育</strong></p>
+<ol start="12">
+<li><p>软件工程经济学：关注于在业务环境中做出决策，以使技术决策与组织的业务目标保持一致。</p>
+</li>
+<li><p>计算基础：涵盖了为软件工程实践提供必要计算背景的基本主题。</p>
+</li>
+<li><p>数学基础：涵盖了为软件工程实践提供必要数学背景的基本主题。</p>
+</li>
+<li><p>工程基础：涵盖了为软件工程实践提供必要工程背景的基本主题。</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>简单解释 CMMI 的五个级别。例如：Level 1 - Initial：无序，自发生产模式。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Characteristics_of_Capability_Maturity_Model.svg/500px-Characteristics_of_Capability_Maturity_Model.svg.png" alt="img"></p>
+<ul>
+<li>Level 1 - Initial：无序，自发生产模式</li>
+<li>Level 2 - Managed：可管理，建立了基本的项目管理过程 </li>
+<li>Level 3 - Defined：已定义，过程文档化、标准化 </li>
+<li>Level 4 - Quantitatively Managed：量化管理，有定量的理解与控制 </li>
+<li>Level 5 - Optimizing：优化，不断改进过程</li>
+</ul>
+</li>
+<li><p>用自己语言简述 SWEBok 或 CMMI （约200字）</p>
+<p>SWEBok是软件生产的最佳实践与相关知识的框架，指导软件工程人才的培养与学科建设。它描述了描述了软件工程所需要的11个实践知识背景和4个基础教育背景，被用于应对软件危机。使用SWEBoK来培养软件工程人才与软件生命周期管理，可以提高人才的素质与应对软件危机的能力，规范软件开发过程。</p>
+<p>CMMI，能力成熟度模型集成，它通过使用知识（能力）的不同，用不同级别表示开发企业的成熟性，不仅给出了企业能力提升的路径，也给出了企业能力评估的事实标准。 适合一个还不成熟的团队，根据CMMI进行阶梯式成长。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+          
+            <a href="/tags/软件危机/" rel="tag"># 软件危机</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/Golang入门/" rel="next" title="Golang入门">
+                <i class="fa fa-chevron-left"></i> Golang入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/16/软件项目与知识团队管理基础/" rel="prev" title="软件项目与知识团队管理基础">
+                软件项目与知识团队管理基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4"
+                alt="Niz" />
+            
+              <p class="site-author-name" itemprop="name">Niz</p>
+              <p class="site-description motion-element" itemprop="description">Hopefully I can do it.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Niz712" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:st1remain@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Niz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+    <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'dee48c8f64b7b88a503f',
+          clientSecret: 'd9e6b1f66afe7c9d899a712fe1099a21e761139c',
+          repo: 'Niz712.github.io',
+          owner: 'Niz712',
+          admin: ['Niz712'], 
+          // id: location.pathname,
+          
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')    
+       </script>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

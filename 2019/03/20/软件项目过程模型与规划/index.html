@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="统一过程,软件开发模型," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
+<meta name="keywords" content="统一过程,软件开发模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件项目过程模型与规划">
+<meta property="og:url" content="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/index.html">
+<meta property="og:site_name" content="For white For me">
+<meta property="og:description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-03-22T10:21:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件项目过程模型与规划">
+<meta name="twitter:description" content="简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点  从项目特点、风险特征、人力资源利用角度思考  瀑布模型 瀑布模型中的每一个开发活动具有下列特征：  本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档   根据本阶段的活动规程执行相应的任务  本阶段活动产出相关的软件工件，作为下一阶段活动的输入。  对本阶段活动执行情况进行评审">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/"/>
+
+
+
+
+
+  <title>软件项目过程模型与规划 | For white For me</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">For white For me</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2019/03/20/软件项目过程模型与规划/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Niz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For white For me">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件项目过程模型与规划</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-20T18:21:14+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统分析与设计/" itemprop="url" rel="index">
+                    <span itemprop="name">系统分析与设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p>简述瀑布模型、增量模型、螺旋模型（含原形方法）。并分析优缺点</p>
+<ul>
+<li>从项目特点、风险特征、人力资源利用角度思考</li>
+</ul>
+<p><strong>瀑布模型</strong></p>
+<p>瀑布模型中的每一个开发活动具有下列特征：</p>
+<ol>
+<li><p>本阶段活动的工作对象来自于上一项活动的输出，这些输出一 般是代表本阶段活动结束的里程碑式的文档 </p>
+</li>
+<li><p>根据本阶段的活动规程执行相应的任务</p>
+</li>
+<li><p>本阶段活动产出相关的软件工件，作为下一阶段活动的输入。</p>
+</li>
+<li><p>对本阶段活动执行情况进行评审 </p>
+<a id="more"></a> 
+</li>
+</ol>
+<ul>
+<li><p>优点： </p>
+<ul>
+<li>降低软件开发的复杂程度，提高软件开发过程的透明性，提高软件开发过程的可管理性</li>
+<li>推迟软件实现，强调在软件实现前必须进行分析和设计工作</li>
+<li>以项目的阶段评审和文档控制为手段有效地对整个开发过程进行指导，保证了阶段之间的正确衔接，能够及时发现并纠正开 发过程中存在的缺陷，使产品达到预期的质量要求 </li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li>强调过程活动的线性顺序 </li>
+<li>缺乏灵活性，特别是无法解决软件需求不明确或不准确的问题</li>
+<li>风险控制能力较弱</li>
+<li>瀑布模型中的软件活动是文档驱动的，当阶段之间规定过多的文档时，会极大地增加系统的工作量</li>
+<li>管理人员如果仅仅以文档的完成情况来评估项目完成进度，往往会产生错误的结论 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <strong>增量模型</strong></p>
+<p>  增量模型首先对系统最核心或最清晰的需求进行分析、设计、实现、测试并集成到系统中，再按优先级逐步实现后续需求。 </p>
+<ul>
+<li><p>优点：</p>
+<ul>
+<li>增强客户对系统的信心</li>
+<li>降低系统失败风险</li>
+<li>提高系统可靠性</li>
+<li>提高系统的稳定性和可维护性</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li><p>增量粒度难以选择</p>
+</li>
+<li><p>确定所有的基本业务服务比较困难 </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>  <strong>螺旋模型</strong></p>
+<p>  螺旋模型主要针对大型软件项目的开发</p>
+<ul>
+<li><p>优点：</p>
+<ul>
+<li>引入了明确的风险管理机制 </li>
+<li>风险驱动的迭代过程，强调可选方案和约束条件从而支持软件的重用，有助于将软件质量作为特殊目标融入产品开发之中</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li><p>螺旋模型强调风险分析，但说服外部客户接受和相信分析结果并做出相关反应并不容易</p>
+</li>
+<li><p>风险分析需要耗费相当的成本</p>
+</li>
+<li><p>失误的风险分析可能带来更大的风险</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>简述统一过程三大特点，与面向对象的方法有什么关系？</p>
+<p>三大特点：</p>
+<ul>
+<li>迭代式的增量开发：受控的迭代式增量开发 </li>
+<li>用例（Use case-driven）驱动 </li>
+<li>以软件体系结构为中心 </li>
+</ul>
+<p>统一过程是一个面向对象且基于网络的程序开发方法论。 </p>
+</li>
+<li><p>简述统一过程四个阶段的划分准则是什么？每个阶段关键的里程碑是什么？</p>
+<ol>
+<li>初始阶段<ul>
+<li>目标：为系统建立业务案例 (Business Case) 并确定项目的边界。业务案例包括项目的验收规范、风险评估、所需资源估计、阶段计划等。确定项目边界需要识别所有与系统交互的外部实体，并在较高层次上定义外部实体与系统交互的特性，主要包括识别外部角色 (Actor)、识别所有用例并详细描述一些重要的用例。</li>
+<li>里程碑：生命周期目标 (Lifecycle Objective) 里程碑，包括一些重要的文档，如：项目构想 (Vision)、原始用例模型、原始业务 风险评估、一个或者多个原型、原始业务案例等。需要对这些 文档进行评审，以确定正确理解用例需求、项目风险评估合理、阶段计划可行等。 </li>
+</ul>
+</li>
+<li>精化阶段<ul>
+<li>目标：分析问题领域，建立健全的体系结构基础，编制项目计划，完成项目中高风险需求部分的开发。 </li>
+<li>里程碑：生命周期体系结构 (Lifecycle Architecture) 里程碑。包括风险分析文档、软件体系结构基线、项目计划、可执行的进 化原型、初始版本的用户手册等。通过评审确定软件体系结构 已经稳定、高风险的业务需求和技术机制已经解决、修订的项 目计划可行等。 </li>
+</ul>
+</li>
+<li>构建阶段 <ul>
+<li>目标：完成所有剩余的技术构件和稳定业务需求功能的开发， 并集成为产品，详细测试所有功能。构建阶段只是一个制造过 程，其重点放在管理资源及控制开发过程以优化成本、进度和 质量。 </li>
+<li>里程碑：初始运行能力 (Initial Operational Capability) 里程碑。包括可以运行的软件产品、用户手册等，它决定了产品是否可 以在测试环境中进行部署。此刻，要确定软件、环境、用户是 否可以开始系统的运行。 </li>
+</ul>
+</li>
+<li>产品化阶段/移交阶段<ul>
+<li>目标：确保软件对最终用户是可用的。产品化阶段可以跨越几次迭代，包括为发布做准备的产品测试，基于用户反馈的少量 调整。</li>
+<li>里程碑：产品发布 (Product Release) 里程碑。确定最终目标是否实现，是否应该开始产品下一个版本的另一个开发周期。在 一些情况下这个里程碑可能与下一个周期的初始阶段的相重合。 </li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>软件企业为什么能按固定节奏生产、固定周期发布软件产品？它给企业项目管理带来哪些好处？</p>
+<p>UP统一过程将软件的生命周期划分为四个阶段，每一阶段包含一个明确的里程碑，这样，每一阶段的长度固定下来。并且开发被组织成一系列固定的短期小项目，称为迭代，每次迭代都产生经过测试、集成并可执行的局部系统。每次迭代都具有各自的需求分析、设计、实现和测试活动。因此，在每次迭代完成后，都有一定的产品可供发布。 </p>
+<p>按固定节奏生产、固定周期发布产品给企业项目管理以更明确的目标和更好的软件开发节奏，提升效率，节省时间，也能更方便的安排团队的工作。</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/统一过程/" rel="tag"># 统一过程</a>
+          
+            <a href="/tags/软件开发模型/" rel="tag"># 软件开发模型</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/软件项目与知识团队管理基础/" rel="next" title="软件项目与知识团队管理基础">
+                <i class="fa fa-chevron-left"></i> 软件项目与知识团队管理基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4"
+                alt="Niz" />
+            
+              <p class="site-author-name" itemprop="name">Niz</p>
+              <p class="site-description motion-element" itemprop="description">Hopefully I can do it.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Niz712" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:st1remain@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Niz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+    <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'dee48c8f64b7b88a503f',
+          clientSecret: 'd9e6b1f66afe7c9d899a712fe1099a21e761139c',
+          repo: 'Niz712.github.io',
+          owner: 'Niz712',
+          admin: ['Niz712'], 
+          // id: location.pathname,
+          
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')    
+       </script>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

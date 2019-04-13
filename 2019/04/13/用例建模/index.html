@@ -414,8 +414,40 @@
 <p>用例图是指由参与者（Actor）、用例（Use Case），边界以及它们之间的关系构成的用于描述系统功能的视图。用例图是外部用户（被称为参与者）所能观察到的系统功能的模型图。用例图是系统的蓝图。用例图呈现了一些参与者，一些用例，以及它们之间的关系，主要用于对系统、子系统或类的功能行为进行建模。</p>
 </li>
 <li><p>用例图的基本符号与元素？</p>
-<p>| 元素     | 符号                              | 概念                                                         |<br>| ——– | ——————————— | ———————————————————— |<br>| 参与者   | <img src="/2019/04/13/用例建模/actor.png" alt="actor">     | 具有某些行为的事物，可以是人（由角色识别）、计算机系统或组织。 |<br>| 用例     | <img src="/2019/04/13/用例建模/usecase.png" alt="usecase"> | 用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。 |<br>| 箭头     | <img src="/2019/04/13/用例建模/arrow.png" alt="arrow">     | 箭头用来表示参与者和系统通过相互发送信号或消息进行交互的关联关系。箭头尾部用来表示启动交互的一方，箭头头部用来表示被启动的一方，其中用例总是要由参与者来启动。 |<br>| 系统边界 | <img src="/2019/04/13/用例建模/system.png" alt="system">   | 系统边界是用来表示正在建模系统的边界。边界内表示系统的组成部分，边界外表示系统外部。系统边界在画图中用方框来表示，同时附上系统的名称，参与者画在边界的外面，用例画在边界里面。 |</p>
 </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>符号</th>
+<th>概念</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参与者</td>
+<td><img src="/2019/04/13/用例建模/actor.png" alt="actor"></td>
+<td>具有某些行为的事物，可以是人（由角色识别）、计算机系统或组织。</td>
+</tr>
+<tr>
+<td>用例</td>
+<td><img src="/2019/04/13/用例建模/usecase.png" alt="usecase"></td>
+<td>用例就是一组相关的成功和失败场景集合，用来描述参与者如何使用系统来实现其目标。</td>
+</tr>
+<tr>
+<td>箭头</td>
+<td><img src="/2019/04/13/用例建模/arrow.png" alt="arrow"></td>
+<td>箭头用来表示参与者和系统通过相互发送信号或消息进行交互的关联关系。箭头尾部用来表示启动交互的一方，箭头头部用来表示被启动的一方，其中用例总是要由参与者来启动。</td>
+</tr>
+<tr>
+<td>系统边界</td>
+<td><img src="/2019/04/13/用例建模/system.png" alt="system"></td>
+<td>系统边界是用来表示正在建模系统的边界。边界内表示系统的组成部分，边界外表示系统外部。系统边界在画图中用方框来表示，同时附上系统的名称，参与者画在边界的外面，用例画在边界里面。</td>
+</tr>
+</tbody>
+</table>
+<ol start="7">
 <li><p>用例图的画法与步骤</p>
 <ol>
 <li>确定系统边界</li>
@@ -465,14 +497,91 @@
 <p>可以通过设置背景颜色显示出创新思路对其他部分的影响。</p>
 </li>
 <li><p>请使用 SCRUM 方法，选择一个用例图，编制某定旅馆开发的需求</p>
-<p>| ID   | Name             | Imp  | Est  | How to demo                                          |<br>| —- | —————- | —- | —- | —————————————————- |<br>| 1    | find hotel       | 10   | 3    | find hotel by name or use map api                    |<br>| 2    | make reservation | 7    | 4    | determine hotel，room，time and confirm informations |<br>| 3    | pay              | 7    | 3    | pay by pay api                                       |<br>| 4    | comment          | 4    | 2    | comment of the reservation and show it               |</p>
-</li>
-<li><p>根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算</p>
-<p>| 用例             | 业务 | 计算 | UC比重 |<br>| —————- | —- | —- | —— |<br>| Find hotel       | 3    | 2    | 简单   |<br>| make reservation | 7    | 6    | 一般   |<br>| pay              | 2    | 1    | 简单   |<br>| comment          | 3    | 2    | 简单   |</p>
 </li>
 </ol>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Imp</th>
+<th>Est</th>
+<th>How to demo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>find hotel</td>
+<td>10</td>
+<td>3</td>
+<td>find hotel by name or use map api</td>
+</tr>
+<tr>
+<td>2</td>
+<td>make reservation</td>
+<td>7</td>
+<td>4</td>
+<td>determine hotel，room，time and confirm informations</td>
+</tr>
+<tr>
+<td>3</td>
+<td>pay</td>
+<td>7</td>
+<td>3</td>
+<td>pay by pay api</td>
+</tr>
+<tr>
+<td>4</td>
+<td>comment</td>
+<td>4</td>
+<td>2</td>
+<td>comment of the reservation and show it</td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>根据任务4，参考使用用例点估算软件成本，给出项目用例点的估算</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>用例</th>
+<th>业务</th>
+<th>计算</th>
+<th>UC比重</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find hotel</td>
+<td>3</td>
+<td>2</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>make reservation</td>
+<td>7</td>
+<td>6</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>pay</td>
+<td>2</td>
+<td>1</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>3</td>
+<td>2</td>
+<td>简单</td>
+</tr>
+</tbody>
+</table>
+<p>​     </p>
 
       
     </div>

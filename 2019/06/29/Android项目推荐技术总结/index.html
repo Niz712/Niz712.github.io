@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-cn">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,客户端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="虽然之前学习过Android开发的课程，但是真正完成的只有一些小型作业，并没有结合后端来实现一个真正完整的项目，用到的技术与现在的Android开发方法技术都有很大的区别，界面也十分简单单调。 但是在这次项目的实现过程中，我尽力地使用了许多现代Android开发常用的UI框架与API工具。">
+<meta name="keywords" content="Android,客户端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android项目推荐技术总结">
+<meta property="og:url" content="https://niz712.github.io/2019/06/29/Android项目推荐技术总结/index.html">
+<meta property="og:site_name" content="For white For me">
+<meta property="og:description" content="虽然之前学习过Android开发的课程，但是真正完成的只有一些小型作业，并没有结合后端来实现一个真正完整的项目，用到的技术与现在的Android开发方法技术都有很大的区别，界面也十分简单单调。 但是在这次项目的实现过程中，我尽力地使用了许多现代Android开发常用的UI框架与API工具。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:image" content="https://developer.android.com/images/fragment_lifecycle.png?hl=zh-CN">
+<meta property="og:image" content="https://github.com/arcadefire/nice-spinner/raw/master/nice-spinner.gif">
+<meta property="og:image" content="https://github.com/JZXiang/PickerView/raw/master/preview/timepickerdialog_demo.gif">
+<meta property="og:updated_time" content="2019-06-29T05:49:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android项目推荐技术总结">
+<meta name="twitter:description" content="虽然之前学习过Android开发的课程，但是真正完成的只有一些小型作业，并没有结合后端来实现一个真正完整的项目，用到的技术与现在的Android开发方法技术都有很大的区别，界面也十分简单单调。 但是在这次项目的实现过程中，我尽力地使用了许多现代Android开发常用的UI框架与API工具。">
+<meta name="twitter:image" content="https://developer.android.com/images/fragment_lifecycle.png?hl=zh-CN">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niz712.github.io/2019/06/29/Android项目推荐技术总结/"/>
+
+
+
+
+
+  <title>Android项目推荐技术总结 | For white For me</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">For white For me</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niz712.github.io/2019/06/29/Android项目推荐技术总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Niz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="For white For me">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android项目推荐技术总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-29T13:49:37+08:00">
+                2019-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/系统分析与设计/" itemprop="url" rel="index">
+                    <span itemprop="name">系统分析与设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>虽然之前学习过Android开发的课程，但是真正完成的只有一些小型作业，并没有结合后端来实现一个真正完整的项目，用到的技术与现在的Android开发方法技术都有很大的区别，界面也十分简单单调。</p>
+<p>但是在这次项目的实现过程中，我尽力地使用了许多现代Android开发常用的UI框架与API工具。</p>
+<a id="more"></a> 
+<h2 id="一、Fragment与Activity"><a href="#一、Fragment与Activity" class="headerlink" title="一、Fragment与Activity"></a>一、Fragment与Activity</h2><p>Fragment，意为片段，同传统的Activity不同，它是用户</p>
+<blockquote>
+<p><code>Fragment</code> 表示 <code>Activity</code> 中的行为或用户界面部分。您可以将多个片段组合在一个 Activity 中来构建多窗格 UI，以及在多个 Activity 中重复使用某个片段。您可以将片段视为 Activity 的模块化组成部分，它具有自己的生命周期，能接收自己的输入事件，并且您可以在 Activity 运行时添加或移除片段（有点像您可以在不同 Activity 中重复使用的“子 Activity”）。 </p>
+</blockquote>
+<p>我的理解是，片段就是用户自定义的UI控件，并且是可复用的，可以嵌入不同的Activity中。我认为，现在的Android客户端设计，应该更多地使用Fragment来替代Activity，比如在显示列表的时候，一个ListFragment可以复用在多个Activity中，而不需要创建多个Activity。</p>
+<p>Fragment生命周期如下，同Activity是紧密相连的。</p>
+<p><img src="https://developer.android.com/images/fragment_lifecycle.png?hl=zh-CN" alt="Fragment Lifecycle"></p>
+<h3 id="Fragment-amp-BottomNavigationView"><a href="#Fragment-amp-BottomNavigationView" class="headerlink" title="Fragment &amp; BottomNavigationView"></a>Fragment &amp; BottomNavigationView</h3><p>使用底部导航栏，可以说是很多app首页的选择，界面也比较美观。如果没有Fragment，导航栏的点击就又会跳转到不同的页面，加载过程也比较慢，不是很好的选择。</p>
+<p>底部导航栏的使用，在activity的xml中声明该空间，同时设置其位置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.google.android.material.bottomnavigation.BottomNavigationView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/nav_view"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginStart</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginEnd</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"?android:attr/windowBackground"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:menu</span>=<span class="string">"@menu/bottom_nav_menu"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>添加<code>menu/bottom_nav_menu.xml</code>声明菜单内容。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_home"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_tab_home_page"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"@string/title_home"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_mine"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_tab_mine"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"@string/title_mine"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在Activity中设置导航栏控制Fragment：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener</span><br><span class="line">            = <span class="keyword">new</span> BottomNavigationView.OnNavigationItemSelectedListener() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</span><br><span class="line">            fragmentManager = getSupportFragmentManager();</span><br><span class="line">            transaction = fragmentManager.beginTransaction();</span><br><span class="line">            <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">                <span class="keyword">case</span> R.id.navigation_home:</span><br><span class="line">                    transaction.replace(R.id.fragment_container, TaskListFragment.newInstance(<span class="number">0</span>, <span class="string">"asc"</span>));</span><br><span class="line">                    transaction.commit();</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                <span class="keyword">case</span> R.id.navigation_mine:</span><br><span class="line">                    transaction.replace(R.id.fragment_container, MineFragment.newInstance(current_user));</span><br><span class="line">                    transaction.commit();</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这里提示，使用newInstance之类的方法来创建Fragment，而不是直接new Fragment()。</p>
+</blockquote>
+<h3 id="Fragment-amp-TabLayout-amp-Viewpaper"><a href="#Fragment-amp-TabLayout-amp-Viewpaper" class="headerlink" title="Fragment &amp; TabLayout &amp; Viewpaper"></a>Fragment &amp; TabLayout &amp; Viewpaper</h3><p>TabLayout同底部导航栏相似，只不过它大多数情况下使用在顶部，而配合ViewPaper，能够提前加载Fragment，显示与加载效果将会更好。</p>
+<p>其大致使用方法同底部导航栏配合Fragment相似，只不过ViewPaper需要自定义一个ViewPaperAdapter，来控制Fragment的显示。</p>
+<p>自定义Adapter类时，需要特别注意getItem方法，可以说是由它来控制显示的Fragment。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// getItem is called to instantiate the fragment for the given page.</span></span><br><span class="line">    <span class="comment">// Return a TaskDetailFragment (defined as a static inner class below).</span></span><br><span class="line">    <span class="keyword">if</span> (position == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> TaskDetailFragment.newInstance(current_task);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> MessageFragment.newInstance(current_task.getTid().intValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在Activity中设置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sectionsPagerAdapter = <span class="keyword">new</span> SectionsPagerAdapter(<span class="keyword">this</span>, getSupportFragmentManager());</span><br><span class="line">sectionsPagerAdapter.setTask(current_task);</span><br><span class="line">viewPager = findViewById(R.id.view_pager);</span><br><span class="line">viewPager.setAdapter(sectionsPagerAdapter);</span><br><span class="line">tabs = findViewById(R.id.tabs);</span><br><span class="line">tabs.setupWithViewPager(viewPager);</span><br></pre></td></tr></table></figure>
+<h2 id="二、-Retrofit-2-Rxjava2"><a href="#二、-Retrofit-2-Rxjava2" class="headerlink" title="二、 Retrofit 2 + Rxjava2"></a>二、 Retrofit 2 + Rxjava2</h2><p>Retrofit 2 + Rxjava2这两个工具能够十分方便实现网络api请求和获取，以及相关线程的处理。以下介绍一些简单的使用与可复用模板。</p>
+<p>首先<strong>添加依赖</strong>：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//okhttp和retrofit</span></span><br><span class="line">implementation <span class="string">'com.squareup.okhttp3:okhttp:3.2.0'</span></span><br><span class="line">implementation <span class="string">'com.squareup.retrofit2:retrofit:2.0.0'</span></span><br><span class="line">implementation <span class="string">'com.squareup.retrofit2:converter-scalars:2.0.0'</span></span><br><span class="line"><span class="comment">//retrofit对Rxjava2版本的适配</span></span><br><span class="line">implementation <span class="string">'com.squareup.retrofit2:adapter-rxjava2:2.2.0'</span></span><br><span class="line"><span class="comment">//json解析类</span></span><br><span class="line">implementation <span class="string">'com.squareup.retrofit2:converter-gson:2.1.0'</span></span><br><span class="line"><span class="comment">//rxjava类</span></span><br><span class="line">implementation <span class="string">'io.reactivex.rxjava2:rxandroid:2.1.0'</span></span><br><span class="line">implementation <span class="string">'io.reactivex.rxjava2:rxjava:2.2.4'</span></span><br></pre></td></tr></table></figure>
+<p><strong>添加权限</strong>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.ACCESS_NETWORK_STATE"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>编写数据实体类</strong>，略，只需要注意变量名同json条目名相同，或者添加<code>SerializedName</code></p>
+<p><strong>创建Service类</strong>，相当于绑定url吧。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApiService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@POST</span>(<span class="string">"userRegist"</span>)</span><br><span class="line">    <span class="function">Observable&lt;Status&gt; <span class="title">userRigist</span><span class="params">(@Query(<span class="string">"name"</span>)</span> String name, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"phone"</span>)</span> String phone, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"email"</span>)</span> String email, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"password"</span>)</span> String password)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@POST</span>(<span class="string">"userLogin"</span>)</span><br><span class="line">    <span class="function">Observable&lt;Status&gt; <span class="title">userLogin</span><span class="params">(@Query(<span class="string">"name"</span>)</span> String name, </span></span><br><span class="line"><span class="function">                                 @<span class="title">Query</span><span class="params">(<span class="string">"password"</span>)</span> String password)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@POST</span>(<span class="string">"getUser"</span>)</span><br><span class="line">    <span class="function">Observable&lt;Status&gt; <span class="title">getUser</span><span class="params">(@Query(<span class="string">"name"</span>)</span> String name)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@POST</span>(<span class="string">"updateUser"</span>)</span><br><span class="line">    <span class="function">Observable&lt;Status&gt; <span class="title">updateUser</span><span class="params">(@Query(<span class="string">"name"</span>)</span> String name, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"phone"</span>)</span> String phone, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"email"</span>)</span> String email, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"password"</span>)</span> String password, </span></span><br><span class="line"><span class="function">                                  @<span class="title">Query</span><span class="params">(<span class="string">"money"</span>)</span> <span class="keyword">int</span> money)</span>;</span><br><span class="line">	<span class="comment">// ...other API</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>封装Retrofit请求过程</strong>，相当于封装一个api请求工具。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Api</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String baseUrl = <span class="string">"http://111.230.13.139:8080/ServerAndDB/"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ApiService apiService;</span><br><span class="line">    <span class="comment">//单例</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ApiService <span class="title">getApiService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (apiService == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (Api.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (apiService == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">new</span> Api();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> apiService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Api</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</span><br><span class="line">                .baseUrl(baseUrl)</span><br><span class="line">                .addConverterFactory(GsonConverterFactory.create())<span class="comment">//请求的结果转为实体类</span></span><br><span class="line">                <span class="comment">//适配RxJava2.0,RxJava1.x则为RxJavaCallAdapterFactory.create()</span></span><br><span class="line">                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())</span><br><span class="line">                .build();</span><br><span class="line">        apiService = retrofit.create(ApiService.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>封装线程管理和订阅</strong>，相当于将线程管理函数封装，并且封装相应的方法用于调用url。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiMethods</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 封装线程管理和订阅的过程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ApiSubscribe</span><span class="params">(Observable observable, Observer observer)</span> </span>&#123;</span><br><span class="line">        observable.subscribeOn(Schedulers.io())</span><br><span class="line">                .unsubscribeOn(Schedulers.io())</span><br><span class="line">                .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">                .subscribe(observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> observer 由调用者传过来的观察者对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">userRegist</span><span class="params">(Observer&lt;Status&gt; observer, String name, String phone, String email, String password)</span> </span>&#123;</span><br><span class="line">        ApiSubscribe(Api.getApiService().userRigist(name, phone, email, password), observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">updateUser</span><span class="params">(Observer&lt;Status&gt; observer, String name, String phone, String email, String password, <span class="keyword">int</span> money)</span> </span>&#123;</span><br><span class="line">        ApiSubscribe(Api.getApiService().updateUser(name, phone, email, password, money), observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">userLogin</span><span class="params">(Observer&lt;Status&gt; observer, String name, String password)</span> </span>&#123;</span><br><span class="line">        ApiSubscribe(Api.getApiService().userLogin(name, password), observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getUser</span><span class="params">(Observer&lt;Status&gt; observer, String name)</span> </span>&#123;</span><br><span class="line">        ApiSubscribe(Api.getApiService().getUser(name), observer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>重写Observer类与监听接口</strong>，将返回值封装并创建可复用接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ObserverOnNextListener</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onNext</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyObserver</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Observer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MyObserver"</span>;</span><br><span class="line">    <span class="keyword">private</span> ObserverOnNextListener listener;</span><br><span class="line">    <span class="keyword">private</span> Context context;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyObserver</span><span class="params">(Context context, ObserverOnNextListener listener)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.listener = listener;</span><br><span class="line">        <span class="keyword">this</span>.context = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onSubscribe: "</span>);</span><br><span class="line">        <span class="comment">//添加业务处理</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(T t)</span> </span>&#123;</span><br><span class="line">        listener.onNext(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        Log.e(TAG, <span class="string">"onError: "</span>, e);</span><br><span class="line">        <span class="comment">//添加业务处理</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.d(TAG, <span class="string">"onComplete: "</span>);</span><br><span class="line">        <span class="comment">//添加业务处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>调用：重写onNext，并调用<code>ApiMethod</code>中相应函数即可。</strong></p>
+<h2 id="三、推荐一些UI控件"><a href="#三、推荐一些UI控件" class="headerlink" title="三、推荐一些UI控件"></a>三、推荐一些UI控件</h2><h3 id="Nice-Spnnier"><a href="#Nice-Spnnier" class="headerlink" title="Nice Spnnier"></a>Nice Spnnier</h3><p><a href="https://github.com/arcadefire/nice-spinner" target="_blank" rel="noopener">源地址</a></p>
+<p>Android原生的下拉列表十分的简陋，这个下拉UI要好看很多，使用也十分简单。</p>
+<p><img src="https://github.com/arcadefire/nice-spinner/raw/master/nice-spinner.gif" alt="alt tag"> </p>
+<h3 id="Time-Picker-Dialog"><a href="#Time-Picker-Dialog" class="headerlink" title="Time Picker Dialog"></a>Time Picker Dialog</h3><p><a href="https://github.com/JZXiang/TimePickerDialog" target="_blank" rel="noopener">源地址</a></p>
+<p>在时间选择的处理上，原生的DatePicker和TimePicker不仅需要分开使用，而且也不是很好看，这个时间选择对话框的效果要好很多。</p>
+<p><img src="https://github.com/JZXiang/PickerView/raw/master/preview/timepickerdialog_demo.gif" alt="img"> </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://developer.android.com/docs?hl=zh-CN" target="_blank" rel="noopener">Android Developers Docs</a></li>
+<li><a href="https://blog.csdn.net/DeMonliuhui/article/details/77868677" target="_blank" rel="noopener">Android 优雅的让RxJava2.0+Retrofit2.0结合使用</a></li>
+<li><a href="https://github.com/wasabeef/awesome-android-ui" target="_blank" rel="noopener">awesome-android-ui</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/客户端/" rel="tag"># 客户端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/06/领域建模/" rel="next" title="领域建模">
+                <i class="fa fa-chevron-left"></i> 领域建模
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars0.githubusercontent.com/u/31876915?s=400&u=9f6dcfa04818ea9193d72d7de66824775ca4d2b9&v=4"
+                alt="Niz" />
+            
+              <p class="site-author-name" itemprop="name">Niz</p>
+              <p class="site-description motion-element" itemprop="description">Hopefully I can do it.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Niz712" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:st1remain@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Fragment与Activity"><span class="nav-number">1.</span> <span class="nav-text">一、Fragment与Activity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-amp-BottomNavigationView"><span class="nav-number">1.1.</span> <span class="nav-text">Fragment &amp; BottomNavigationView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-amp-TabLayout-amp-Viewpaper"><span class="nav-number">1.2.</span> <span class="nav-text">Fragment &amp; TabLayout &amp; Viewpaper</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、-Retrofit-2-Rxjava2"><span class="nav-number">2.</span> <span class="nav-text">二、 Retrofit 2 + Rxjava2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、推荐一些UI控件"><span class="nav-number">3.</span> <span class="nav-text">三、推荐一些UI控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nice-Spnnier"><span class="nav-number">3.1.</span> <span class="nav-text">Nice Spnnier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-Picker-Dialog"><span class="nav-number">3.2.</span> <span class="nav-text">Time Picker Dialog</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Niz</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">11.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+    <script src="/js/src/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'dee48c8f64b7b88a503f',
+          clientSecret: 'd9e6b1f66afe7c9d899a712fe1099a21e761139c',
+          repo: 'Niz712.github.io',
+          owner: 'Niz712',
+          admin: ['Niz712'], 
+          // id: location.pathname,
+          
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')    
+       </script>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
